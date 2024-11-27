@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            width: 30%;
+            background-image: url('back.avif'); 
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            text-align: center;
+            opacity: 0.8; 
+            filter: brightness(1.2);
+            color: white;
+            border-right: 3px solid #fff; 
+            transition: opacity 0.5s ease;
+        }
+
+        .left.visible {
+            opacity: 1;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-pic img {
+        width: 220px;
+        height: 250px; 
+        border-radius: 50%;
+        margin-bottom: 10px;
+        border: 5px solid #fff; 
+        }
+
+        .contact {
+        margin-top: 20px;
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Slide in from the bottom */
+        animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+        from {
+        opacity: 0;
+        transform: translateY(20px);
+        }
+        to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        }
+
+        .contact h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .contact .fa {
+            margin-right: 10px; /* Icon margin */
+        }
+
+        .right {
+            width: 70%;
+            padding: 20px;
+            background-color: #f9f9f9; /* Normal background for right side */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .right.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.1em solid orange;
+            animation: typing 4s steps(30) 1s forwards, blinkCaret 0.75s step-end infinite;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Adding Background "Rifat" effect below Md Rifat Hasan */
+        .background-text {
+            position: absolute;
+            top: 50px; /* Adjust the position as needed */
+            left: 0;
+            right: 0;
+            font-size: 200px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.1); /* Light color for background text */
+            text-align: center;
+            z-index: -1;
+            animation: fadeInText 3s ease-out forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .about-me, .experience, .education {
+            margin-top: 20px;
+        }
+
+        .about-me h2, .experience h2, .education h2 {
+            color: #333;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .about-me p, .experience p, .education p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #01dd5d;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* New Animation for Skills Section */
+        .skills ul li {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        .skills ul li:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .skills ul li:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .skills ul li:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .skills ul li:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .skills ul li:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .skills ul li:nth-child(6) {
+            animation-delay: 0.8s;
+        }
+
+        .skills ul li:nth-child(7) {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Language Proficiency */
+        .languages ul li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .language-bar {
+            width: 0%;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            margin-top: 5px;
+            transition: width 2s ease-in-out;
+        }
+
+        .english {
+            background-color: #02bd50;
+        }
+
+        .bengali {
+            background-color: #FF9800;
+        }
+
+        .hindi {
+            background-color: #F44336;
+        }
+
+        .english.fill {
+            width: 70%;
+        }
+
+        .bengali.fill {
+            width: 100%;
+        }
+
+        .hindi.fill {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left" id="left-sidebar">
+            <div class="profile-pic">
+                <img src="rifat.jpg" alt="rifat">
+            </div>
+            <div class="contact" id="contact">
+                <h2>Contact</h2>
+                <p><i class="fas fa-envelope"></i> Email: rifat15-4084@diu.edu.bd</p>
+                <p><i class="fas fa-phone-alt"></i> Phone: 018-133-30990</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Narsingdi, Dhaka, Bangladesh</p>
+                <p><i class="fas fa-globe"></i> Website: <a href="http://mdrifathasan.netlify.app">My Portfolio</a></p>
+            </div>
+            <div class="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Programming Language</li>
+                    <li>Web Development</li>
+                    <li>Android App Development</li>
+                    <li>Team Player</li>
+                    <li>Analytical</li>
+                    <li>Leadership</li>
+                    <li>UI/UX Design</li>
+                </ul>
+            </div>
+            <div class="languages">
+                <h2>Languages</h2>
+                <ul>
+                    <li>English
+                        <div class="language-bar english"></div>
+                    </li>
+                    <li>Bengali
+                        <div class="language-bar bengali"></div>
+                    </li>
+                    <li>Hindi
+                        <div class="language-bar hindi"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="right" id="right-content">
+            <h1>Md Rifat Hasan</h1>
+            <h3>Web Developer / Android App Developer</h3>
+            <!-- Adding Background Text -->
+            <div class="background-text">Rifat</div>
+
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>As a passionate developer, I aim to create innovative and user-friendly digital solutions that can help businesses grow. With a strong background in web and Android app development, I am always ready to take on new challenges and continuously learn new technologies.</p>
+            </div>
+
+            <div class="experience">
+                <h2>Experience</h2>
+            
+                <!-- Android App Developer Section -->
+                <p><strong>Android App Developer</strong></p>
+                <br/>
+                <a href="https://github.com/mdrifathasan/Health_care_system-">Health_care_System App</a>
+                <br/>
+                <a href="https://github.com/mdrifathasan/MEDICARE">MEDICARE_System App</a>
+                <p>Android app development involves building mobile applications for the Android operating system using languages like Kotlin or Java in Android Studio. It includes designing user interfaces, managing app data, connecting to external APIs, and optimizing performance for various Android devices.</p>
+            
+                <br/><br/>
+            
+                <!-- Web Developer Section -->
+                <p><strong>Web Developer</strong></p>
+                <a href="http://mdrifathasan.netlify.app">MY Website</a>
+                <p>Web developers create and maintain websites, handling both front-end (user interface) and back-end (server-side) development. They use languages like HTML, CSS, JavaScript, and frameworks such as React or Node.js to build functional, responsive websites and web applications.</p>
+            </div>
+
+            <div class="education">
+                <h2>Education</h2>
+                <p><strong>Bachelor's in Computer Science</strong> - Daffodil International University (2021-2025)</p>
+                <p><strong>(2017-2018) Batch</strong> - Narsingdi Model College</p>
+                <p>Higher Secondary Certificate (HSC)</p>
+                <ul>
+                    <li>Major: Science</li>
+                    <li>Result: GPA 4.00/5.00</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('left-sidebar').classList.add('visible');
+            document.getElementById('right-content').classList.add('visible');
+            setTimeout(function() {
+                document.querySelector('.english').classList.add('fill');
+                document.querySelector('.bengali').classList.add('fill');
+                document.querySelector('.hindi').classList.add('fill');
+            }, 500);
+        };
+    </script>
+</body>
+</html>

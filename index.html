@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #3f3fb4;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #6d2424;
+            color: #050525;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 3rem;
+            background-color: rgba(0, 0, 12, 0.952);
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 3rem;
+            z-index: 1;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .profile-photo {
+            width: 150px;
+            border-radius: 60%;
+            margin-top: 1rem;
+        }
+
+        .profile-photo:hover {
+            animation: rotatePhoto 0.5s ease-in-out;
+        }
+
+        @keyframes rotatePhoto {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #030392;
+            margin: 0.5rem 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        .social-links a {
+            margin: 0 0.5rem;
+            color: #b31809;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #ff6347;
+            transition: color 0.3s ease;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #bb1708;
+        }
+
+        nav a:hover {
+            color: #ff6347;
+            animation: bounce 0.3s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+            color: #f4f4f9;
+        }
+
+        #projects .project {
+            margin: 1rem 0;
+            transition: transform 0.3s ease;
+            background-color: #4a160a;
+            color: #f4f4f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            background-color: #330d08;
+        }
+
+        #contact {
+            background-color: #330d08;
+            padding: 2rem;
+            color: #f4f4f9;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(16, 16, 17, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 10;
+        }
+
+        .nav-bar a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #f4f4f9;
+            font-size: 1.2rem;
+        }
+
+        .nav-bar a:hover {
+            color: #ff6347;
+        }
+
+        /* Welcome Message Animation */
+        .welcome-message {
+            font-size: 3rem;
+            color: #ff6347;
+            animation: slideIn 2s ease-in-out;
+            margin-top: 2rem;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="about.html">About Me</a>
+        <a href="projects.html">Project/CV</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/md-rifat-hasan-391914231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+        <a href="https://www.facebook.com/rifat.4084?mibextid=ZbWKwL">Facebook</a>
+    </div>
+
+    <section class="hero">
+        <video autoplay loop muted id="background-video">
+            <source src="videovideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero-content">
+            <img src="rifat.jpg" alt="Rifat" class="profile-photo">
+            <h1>MD Rifat Hasan</h1>
+            <p>Web Developer | UI/UX Designer | Android App Development</p>
+            <p>Hello! I am passionate about building responsive, user-friendly websites and applications.</p>
+            
+            <!-- Welcome Message with Animation -->
+            <h2 class="welcome-message">Welcome to My Portfolio!</h2>
+        </div>
+    </section>
+</body>
+</html>
